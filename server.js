@@ -8,9 +8,9 @@ const dataFolderPath = path.join(__dirname, 'data');
 
 // settings
 
-const allow_registr = true // can people register (use /register, use /v1/register, etc) - disabling this will redirect these pages to 403 by default
-const idsize = 26; // how much characters should IDs be
-const maxaccounts = 5; // max accounts that can be created per hour from an IP (this resets everytime the application is restarted)
+let allow_registr = true // can people register (use /register, use /v1/register, etc) - disabling this will redirect these pages to 403 by default
+let idsize = 20 // how much characters should IDs be
+let maxaccounts = 1 // max accounts that can be created per hour from an IP (this resets everytime the application is restarted)
 
 // API
 
@@ -239,6 +239,10 @@ app.get('/loginjs', function(req, res) {
 
 app.get('/paneljs', function(req, res) {
   res.sendFile(path.join(__dirname, 'pages/js/panel.js'));
+});
+
+app.get('/entriesjs', function(req, res) {
+  res.sendFile(path.join(__dirname, 'pages/js/entries.js'));
 });
 
 // Error Codes

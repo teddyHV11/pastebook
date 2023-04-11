@@ -76,4 +76,69 @@ copyButtons.forEach(button => {
 });
 }, 500);
 
+function addEntry() {
+  var category = prompt("Category:");
+  var entry = prompt("Entry:");
+  if (category !== null && entry !== null) {
+    var id = getCookie("id");
+    var url = "/v1/add-entry?id=" + id + "&category=" + category + "&entry=" + entry;
+    sendRequest(url);
+    location.reload();
+  }
+}
 
+function addCategory() {
+  var name = prompt("Category name to add:");
+  if (name !== null) {
+    var id = getCookie("id");
+    var url = "/v1/add-category?id=" + id + "&name=" + name;
+    sendRequest(url);
+    location.reload();
+  }
+}
+
+function removeCategory() {
+  var name = prompt("Category name to remove:");
+  if (name !== null) {
+    var id = getCookie("id");
+    var url = "/v1/delete-category?id=" + id + "&category=" + name;
+    sendRequest(url);
+    location.reload();
+  }
+}
+
+function removeEntry() {
+  var category = prompt("Category name:");
+  var entry = prompt("Entry name to remove:");
+  if (category !== null && entry !== null) {
+    var id = getCookie("id");
+    var url = "/v1/delete-entry?id=" + id + "&category=" + category + "&entry=" + entry;
+    sendRequest(url);
+    location.reload();
+  }
+}
+
+function getCookie(name) {
+  var cookies = document.cookie.split(';');
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    if (cookie.startsWith(name + '=')) {
+      return cookie.substring(name.length + 1);
+    }
+  }
+  return null;
+}
+
+function sendRequest(url) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", url);
+  xhr.send();
+}
+
+function logout() {
+  document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  window.location.href = "/";
+}
+
+const pastebookIdElement = document.querySelector('.pastebookid');
+pastebookIdElement.textContent = `Pastebook ID: ${id}`;

@@ -26,7 +26,7 @@ function register() {
     .then(response => response.json())
     .then(data => {
       const pastebookId = data.id;
-      document.cookie = `pastebookId=${pastebookId}; path=/`;
+      document.cookie = `id=${pastebookId}; path=/`;
       window.location.href = '/panel';
     })
     .catch(error => console.error(error));
