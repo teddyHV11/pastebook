@@ -1,0 +1,44 @@
+/*
+This file is used in the index and error pages.
+*/
+
+html {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+button {
+	color: #ffffff;
+  background-color: #000000;
+	font-size: 19px;
+	border: 1px solid #000000;
+	border-radius: 8px;
+	padding: 15px 50px;
+	cursor: pointer
+      
+}
+button:hover {
+	color: #000000;
+	background-color: #ffffff;
+}
+body {
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,20,1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+h1 {
+  ƒar
+}
+h2 {
+  color: white;
+}
+.title00 {
+  background: linear-gradient(to right, #94F752, #4E66CF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-size: 45px;
+}
