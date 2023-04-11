@@ -31,12 +31,13 @@ fetch(`/v1/get-pastes?id=${id}`)
       const button = document.createElement("button");
       button.classList.add("collapsible");
       button.textContent = category;
+      button.dataset.category = "b";
       document.body.appendChild(button);
 
       const content = document.createElement("div");
       content.classList.add("content");
       document.body.appendChild(content);
-
+    
       data[category].forEach(value => {
         const copyButton = document.createElement("button");
         copyButton.classList.add("copy");
@@ -75,6 +76,7 @@ copyButtons.forEach(button => {
   });
 });
 }, 500);
+
 
 function addEntry() {
   var category = prompt("Category:");
@@ -140,5 +142,21 @@ function logout() {
   window.location.href = "/";
 }
 
-const pastebookIdElement = document.querySelector('.pastebookid');
-pastebookIdElement.textContent = `Pastebook ID: ${id}`;
+setTimeout(() => {
+  const collapsibles = document.querySelectorAll(".collapsible, .collapsible.active");
+
+  collapsibles.forEach(collapsible => {
+    collapsible.addEventListener("contextmenu", e => {
+      e.preventDefault();
+      const category = collapsible.textContent.trim();
+      const newEntry = prompt("Enter the new paste:");
+      if (newEntry) {
+        const url = `/v1/add-entry?id=${id}&category=${category}&entry=${encodeURIComponent(newEntry)}`;
+        fetch(url)
+          .then(response => {
+            location.reload();
+          })
+      }
+    });
+  });
+},500);

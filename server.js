@@ -10,7 +10,7 @@ const dataFolderPath = path.join(__dirname, 'data');
 
 let allow_registr = true // can people register (use /register, use /v1/register, etc) - disabling this will redirect these pages to 403 by default
 let idsize = 20 // how much characters should IDs be
-let maxaccounts = 1 // max accounts that can be created per hour from an IP (this resets everytime the application is restarted)
+let maxaccounts = 5 // max accounts that can be created per hour from an IP (this resets everytime the application is restarted)
 
 // API
 
