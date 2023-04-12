@@ -82,7 +82,6 @@ function addEntry() {
   var category = prompt("Category:");
   var entry = prompt("Entry:");
   if (category !== null && entry !== null) {
-    var id = getCookie("id");
     var url = "/v1/add-entry?id=" + id + "&category=" + category + "&entry=" + entry;
     sendRequest(url);
     location.reload();
@@ -92,7 +91,6 @@ function addEntry() {
 function addCategory() {
   var name = prompt("Category name to add:");
   if (name !== null) {
-    var id = getCookie("id");
     var url = "/v1/add-category?id=" + id + "&name=" + name;
     sendRequest(url);
     location.reload();
