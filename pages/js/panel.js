@@ -72,6 +72,10 @@ copyButtons.forEach(button => {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
+    button.style.backgroundColor = "green";
+    setTimeout(function() {
+      button.style.backgroundColor = "";
+    }, 200);
 
   });
 });
