@@ -8,9 +8,9 @@ const dataFolderPath = path.join(__dirname, 'data');
 
 // settings
 
-let allow_registr = true // can people register (use /register, use /v1/register, etc) - disabling this will redirect these pages to 403 by default
-let idsize = 20 // how much characters should IDs be
-let maxaccounts = 5 // max accounts that can be created per hour from an IP (this resets everytime the application is restarted)
+let allow_registr = process.env.allow_register // can people register (use /register, use /v1/register, etc) - disabling this will redirect these pages to 403 by default
+let idsize = Number(process.env.id_size) // how much characters should IDs be
+let maxaccounts = Number(process.env.maxaccounts) // max accounts that can be created per hour from an IP (this resets everytime the application is restarted)
 
 // API
 
@@ -46,7 +46,7 @@ const createAccountLimiter = rateLimit({
 
 
 app.get('/v1/new-pastebook', createAccountLimiter, (req, res) => {
-  if (allow_registr == true) {
+  if (allow_registr == "true") {
     let id = ''
     for (let i = 0; i < idsize; i++) {
       id += Math.random().toString(36).charAt(2);
@@ -205,7 +205,7 @@ app.get('/login', function(req, res) {
 });
 
 app.get('/register', function(req, res) {
-  if (allow_registr == true) {
+  if (allow_registr == "true") {
   res.sendFile(path.join(__dirname, 'pages/register.html'));
   } else {
     res.sendFile(path.join(__dirname, 'pages/403.html'));
