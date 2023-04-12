@@ -100,7 +100,6 @@ function addCategory() {
 function removeCategory() {
   var name = prompt("Category name to remove:");
   if (name !== null) {
-    var id = getCookie("id");
     var url = "/v1/delete-category?id=" + id + "&category=" + name;
     sendRequest(url);
     location.reload();
@@ -111,23 +110,12 @@ function removeEntry() {
   var category = prompt("Category name:");
   var entry = prompt("Entry name to remove:");
   if (category !== null && entry !== null) {
-    var id = getCookie("id");
     var url = "/v1/delete-entry?id=" + id + "&category=" + category + "&entry=" + entry;
     sendRequest(url);
     location.reload();
   }
 }
 
-function getCookie(name) {
-  var cookies = document.cookie.split(';');
-  for (var i = 0; i < cookies.length; i++) {
-    var cookie = cookies[i].trim();
-    if (cookie.startsWith(name + '=')) {
-      return cookie.substring(name.length + 1);
-    }
-  }
-  return null;
-}
 
 function sendRequest(url) {
   var xhr = new XMLHttpRequest();
