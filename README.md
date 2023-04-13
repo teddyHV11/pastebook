@@ -6,6 +6,8 @@ It features:
 * 📚 A simple way to organise your pastes into categories, so that they can be easier to find.
 * 🌱 Shortcuts to make using the pastebook easier.
 # Self-hosting
+[![Run on Replit](https://binbashbanana.github.io/deploy-buttons/buttons/remade/replit.svg)](https://replit.com/github/teddyHV11/pastebook)
+[![Remix on Glitch](https://binbashbanana.github.io/deploy-buttons/buttons/remade/glitch.svg)](https://glitch.com/edit/#!/import/github/teddyHV11/pastebook)\
 In order to self host follow these steps:
 ```bash
 git clone https://github.com/teddyHV11/pastebook.git
