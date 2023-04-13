@@ -150,3 +150,9 @@ setTimeout(() => {
     });
   });
 },500);
+
+
+setTimeout(() => {
+  let idelem = document.getElementById("pastebookid");
+  idelem.innerText = `Pastebook ID: ${id}`;
+},1000);
