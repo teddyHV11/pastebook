@@ -11,6 +11,7 @@ In order to self host follow these steps:
 git clone https://github.com/teddyHV11/pastebook.git
 cd pastebook
 nano .env
+npm i
 npm start
 ```
 Within .env you should add the following values.
