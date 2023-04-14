@@ -1,7 +1,7 @@
 # Pastebook
 A simple and configurable site to store your frequently copied and pasted stuff into neatly organised categories.
 
-It features:
+It has the following features:
 * 👤 A simple registration system that does not collect any user data. Just gives the user a pastebook ID to manage their pastes.
 * 📚 A simple way to organise your pastes into categories, so that they can be easier to find.
 * 🌱 Shortcuts to make using the pastebook easier.
