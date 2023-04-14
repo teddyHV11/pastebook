@@ -69,10 +69,11 @@ app.get('/v1/new-pastebook', createAccountLimiter, (req, res) => {
     for (let i = 0; i < idsize; i++) {
       id += Math.random().toString(36).charAt(2);
     }
+    console.log(id);
+    res.json({ id });
     const data = { created: new Date() };
     const filePath = path.join(__dirname, 'data', `${id}.json`);
     fs.writeFileSync(filePath, JSON.stringify(data));
-    res.json({ id });
   } else {
     res.sendFile(path.join(__dirname, 'pages/403.html'));
   }
