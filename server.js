@@ -19,6 +19,10 @@ if (uses3 == "true") {
   fs = require("fs");
 }
 
+if (!fs.existsSync(dataFolderPath)) {
+  fs.mkdirSync(dataFolderPath);
+}
+
 // API
 
 app.get('/v1/get-pastes', (req, res) => {
