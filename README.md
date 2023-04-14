@@ -19,7 +19,7 @@ npm i
 npm start
 ```
 Within .env you should add the following values.
-```env 
+```env
 allow_register=true
 idsize=26
 maxaccounts=2
