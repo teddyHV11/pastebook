@@ -7,7 +7,9 @@ It features:
 * 🌱 Shortcuts to make using the pastebook easier.
 # Self-hosting
 [![Run on Replit](https://binbashbanana.github.io/deploy-buttons/buttons/remade/replit.svg)](https://replit.com/github/teddyHV11/pastebook)
-[![Remix on Glitch](https://binbashbanana.github.io/deploy-buttons/buttons/remade/glitch.svg)](https://glitch.com/edit/#!/import/github/teddyHV11/pastebook)\
+[![Remix on Glitch](https://binbashbanana.github.io/deploy-buttons/buttons/remade/glitch.svg)](https://glitch.com/edit/#!/import/github/teddyHV11/pastebook)
+[![Deploy to Cyclic](https://binbashbanana.github.io/deploy-buttons/buttons/remade/cyclic.svg)](https://app.cyclic.sh/api/app/deploy/teddyHV11/pastebook)
+\
 In order to self host follow these steps:
 ```bash
 git clone https://github.com/teddyHV11/pastebook.git
@@ -21,7 +23,9 @@ Within .env you should add the following values.
 allow_register=true
 idsize=26
 maxaccounts=2
+uses3=true
 ```
-``allow_register`` defines wether the site should allow people to make new pastebooks/register.
-``idsize`` defines how large an ID of a pastebook should be.
-``maxaccounts`` defines how much accounts can be made from an IP per hour.
+``allow_register`` defines wether the site should allow people to make new pastebooks/register.\
+``idsize`` defines how large an ID of a pastebook should be.\
+``maxaccounts`` defines how much accounts can be made from an IP per hour.\
+``uses3`` defines if S3FS will be used for S3 connection to storage.
