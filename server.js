@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const path = require('path');
-const fs = require('fs');
+let fs
 const rateLimit = require('express-rate-limit')
 const dataFolderPath = path.join(__dirname, 'data');
 
@@ -11,6 +11,13 @@ const dataFolderPath = path.join(__dirname, 'data');
 let allow_registr = process.env.allow_register // can people register (use /register, use /v1/register, etc) - disabling this will redirect these pages to 403 by default
 let idsize = Number(process.env.id_size) // how much characters should IDs be
 let maxaccounts = Number(process.env.maxaccounts) // max accounts that can be created per hour from an IP (this resets everytime the application is restarted)
+let uses3 = process.env.uses3
+
+if (uses3 == "true") {
+  fs = require('@cyclic.sh/s3fs') 
+} else {
+  fs = require("fs");
+}
 
 // API
 
