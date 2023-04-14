@@ -14,13 +14,20 @@ let maxaccounts = Number(process.env.maxaccounts) // max accounts that can be cr
 let uses3 = process.env.uses3
 
 if (uses3 == "true") {
+  console.log("Using S3FS")
   fs = require('@cyclic.sh/s3fs') 
 } else {
+  console.log("Using regular FS")
   fs = require("fs");
 }
 
-if (!fs.existsSync(dataFolderPath)) {
-  fs.mkdirSync(dataFolderPath);
+try {
+  if (!fs.existsSync(dataFolderPath)) {
+    fs.mkdirSync(dataFolderPath);
+  }
+
+} catch(error) {
+  console.log(error)
 }
 
 // API
@@ -62,10 +69,10 @@ app.get('/v1/new-pastebook', createAccountLimiter, (req, res) => {
     for (let i = 0; i < idsize; i++) {
       id += Math.random().toString(36).charAt(2);
     }
+    res.json({ id });
     const data = { created: new Date() };
     const filePath = path.join(__dirname, 'data', `${id}.json`);
     fs.writeFileSync(filePath, JSON.stringify(data));
-    res.json({ id });
   } else {
     res.sendFile(path.join(__dirname, 'pages/403.html'));
   }
