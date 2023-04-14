@@ -29,3 +29,4 @@ uses3=true
 ``idsize`` defines how large an ID of a pastebook should be.\
 ``maxaccounts`` defines how much accounts can be made from an IP per hour.\
 ``uses3`` defines if S3FS will be used for S3 connection to storage. (supports Cyclic at this moment only)
+=
