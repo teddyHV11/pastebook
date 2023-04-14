@@ -26,6 +26,8 @@ try {
     fs.mkdirSync(dataFolderPath);
   }
 
+} catch(error) {
+  
 }
 
 // API
