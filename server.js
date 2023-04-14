@@ -21,8 +21,11 @@ if (uses3 == "true") {
   fs = require("fs");
 }
 
-if (!fs.existsSync(dataFolderPath)) {
-  fs.mkdirSync(dataFolderPath);
+try {
+  if (!fs.existsSync(dataFolderPath)) {
+    fs.mkdirSync(dataFolderPath);
+  }
+
 }
 
 // API
