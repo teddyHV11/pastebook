@@ -14,8 +14,10 @@ let maxaccounts = Number(process.env.maxaccounts) // max accounts that can be cr
 let uses3 = process.env.uses3
 
 if (uses3 == "true") {
+  console.log("Using S3FS")
   fs = require('@cyclic.sh/s3fs') 
 } else {
+  console.log("Using regular FS")
   fs = require("fs");
 }
 
